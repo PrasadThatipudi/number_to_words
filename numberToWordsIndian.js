@@ -21,21 +21,13 @@ function tensValueInWord(tensValue) {
   return tens[tensValue - 2];
 }
 
-function toString(number) {
-  return number + "";
-}
-
-function numLength(number) {
-  return toString(number).length;
-}
-
 function getPlaceValueName(placeValue) {
   if (placeValue < 1000) {
     return "";
   }
 
   const placeValues = ["thousand", "lakh", "crore"];
-  const index = Math.floor(numLength(placeValue) / 2) - 2;
+  const index = Math.floor(Math.log10(placeValue) - 3) / 2;
 
   return placeValues[index];
 }
